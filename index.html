@@ -21,9 +21,9 @@
     </script>
 
     <script type="module">
-      import * as THREE from "three";
-      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-      import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+      import * as THREE from "https://threejs.org/build/three.module.js";
+      import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
+      import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
 
       //objects
       let scene, renderer, camera;
@@ -348,13 +348,16 @@
           obj3.rotation.y += 2.0;
         });
 
-        loader.load("./stool/scene.gltf", function (gltf4) {
-          obj4 = gltf4.scene;
-          gltf4.scene.scale.set(0.002, 0.0015, 0.004);
-          scene.add(gltf4.scene);
-          obj4.translateX(-0.5).translateY(0.0).translateZ(3.5);
-          obj4.rotateOnAxis(new THREE.Vector3(0, 1, 0), Math.PI / 2);
-        });
+        loader.load(
+          "https://github.com/danidraghici/EGIOCProject/tree/main/stoolgi/scene.gltf",
+          function (gltf4) {
+            obj4 = gltf4.scene;
+            gltf4.scene.scale.set(0.002, 0.0015, 0.004);
+            scene.add(gltf4.scene);
+            obj4.translateX(-0.5).translateY(0.0).translateZ(3.5);
+            obj4.rotateOnAxis(new THREE.Vector3(0, 1, 0), Math.PI / 2);
+          }
+        );
 
         loader.load("./ink_and_quill/scene.gltf", function (gltf5) {
           obj5 = gltf5.scene;
