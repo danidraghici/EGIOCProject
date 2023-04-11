@@ -21,9 +21,9 @@
     </script>
 
     <script type="module">
-      import * as THREE from "https://threejs.org/build/three.module.js";
-      import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
-      import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
       //objects
       let scene, renderer, camera;
@@ -99,30 +99,18 @@
         texture4.wrapT = THREE.RepeatWrapping;
         texture4.repeat.set(32, 32);
 
-        const texture5 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
-        const texture6 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
-        const texture7 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
+        const texture5 = new THREE.TextureLoader().load("textures/4.jpg");
+        const texture6 = new THREE.TextureLoader().load("textures/5.jpg");
+        const texture7 = new THREE.TextureLoader().load("textures/6.jpg");
         const texture8 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
+          "textures/monalisa.jpg"
         );
         const texture9 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
+          "textures/carucuboi.jpg"
         );
-        const texture10 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
-        const texture11 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
-        const texture12 = new THREE.TextureLoader().load(
-          "textures/alexander.jpg"
-        );
+        const texture10 = new THREE.TextureLoader().load("textures/1.jpg");
+        const texture11 = new THREE.TextureLoader().load("textures/2.jpg");
+        const texture12 = new THREE.TextureLoader().load("textures/3.jpg");
         const texture13 = new THREE.TextureLoader().load(
           "textures/alexander.jpg"
         );
@@ -348,16 +336,13 @@
           obj3.rotation.y += 2.0;
         });
 
-        loader.load(
-          "https://github.com/danidraghici/EGIOCProject/tree/main/stoolgi/scene.gltf",
-          function (gltf4) {
-            obj4 = gltf4.scene;
-            gltf4.scene.scale.set(0.002, 0.0015, 0.004);
-            scene.add(gltf4.scene);
-            obj4.translateX(-0.5).translateY(0.0).translateZ(3.5);
-            obj4.rotateOnAxis(new THREE.Vector3(0, 1, 0), Math.PI / 2);
-          }
-        );
+        loader.load("./stool/scene.gltf", function (gltf4) {
+          obj4 = gltf4.scene;
+          gltf4.scene.scale.set(0.002, 0.0015, 0.004);
+          scene.add(gltf4.scene);
+          obj4.translateX(-0.5).translateY(0.0).translateZ(3.5);
+          obj4.rotateOnAxis(new THREE.Vector3(0, 1, 0), Math.PI / 2);
+        });
 
         loader.load("./ink_and_quill/scene.gltf", function (gltf5) {
           obj5 = gltf5.scene;
